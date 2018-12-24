@@ -1,9 +1,24 @@
 const EventEmitter = require('eventemitter3')
+
 /**
  * Event emitter that emits fibonacci numbers at a given frequency (in milliseconds)
  * @extends EventEmitter
  *
- * @fires {Number}
+ * @fires {Number} a 'data' event for every new number in the sequence
+ * @fires {void} a 'end' event once the sequence finished
+ *
+ * Usage:
+ *
+ *  const fe = new FibEmitter(6, 10)
+ *  fe.on('data', n => console.log(n))
+ *  fe.on('end', () => console.log('done!'))
+ *  fe.start()
+ *  // 1
+ *  // 1
+ *  // 2
+ *  // 3
+ *  // 5
+ *  // done!
  */
 class FibEmitter extends EventEmitter {
   /**
@@ -32,7 +47,7 @@ class FibEmitter extends EventEmitter {
 
       if (nextVal >= this._max) {
         clearInterval(interval)
-        this.emit('finish')
+        this.emit('end')
         return null
       }
 

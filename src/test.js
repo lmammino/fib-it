@@ -1,9 +1,10 @@
 import test from 'ava'
-import genFib from './fib-function'
-import genFibIterator from './fib-iterator'
-import fibGenerator from './fib-generator'
-import genFibIterable from './fib-iterable'
-import FibEmitter from './fib-emitter'
+import genFib from './function'
+import genFibIterator from './iterator'
+import fibGenerator from './generator'
+import genFibIterable from './iterable'
+import FibEmitter from './emitter'
+import FibStream from './stream'
 
 const expected = [1, 1, 2, 3, 5]
 
@@ -63,9 +64,23 @@ test.cb('fib-emitter', t => {
   const fe = new FibEmitter(6, 10)
   const result = []
   fe.on('data', n => result.push(n))
-  fe.on('finish', () => {
+  fe.on('end', () => {
     t.deepEqual(result, expected)
     t.end()
   })
   fe.start()
+})
+
+test.cb('fib-stream', t => {
+  t.plan(1)
+
+  const s = new FibStream(6)
+  const result = []
+  s.on('data', chunk => {
+    result.push(chunk.readUInt32LE(0))
+  })
+  s.on('end', () => {
+    t.deepEqual(result, expected)
+    t.end()
+  })
 })

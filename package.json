@@ -1,16 +1,24 @@
 {
   "name": "fib-it",
   "version": "1.0.0",
-  "description": "",
-  "main": "fib-function.js",
+  "description": "6 different implementation of the fibonacci sequence in JavaScript",
+  "main": "index.js",
   "scripts": {
-    "test:lint": "eslint .",
-    "test:unit": "ava --verbose test.js",
+    "test:lint": "eslint index.js src/",
+    "test:unit": "ava --verbose src/test.js",
     "test": "npm run test:lint && npm run test:unit"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "fibonacci",
+    "fib",
+    "iterator",
+    "generator",
+    "iterable",
+    "stream",
+    "streams"
+  ],
+  "author": "Luciano Mammino",
+  "license": "MIT",
   "devDependencies": {
     "ava": "^1.0.1",
     "eslint": "^5.11.0",
@@ -21,6 +29,7 @@
     "eslint-plugin-standard": "^4.0.0"
   },
   "dependencies": {
-    "eventemitter3": "^3.1.0"
+    "eventemitter3": "^3.1.0",
+    "readable-stream": "^3.1.1"
   }
 }
