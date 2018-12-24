@@ -6,7 +6,8 @@
   "scripts": {
     "test:lint": "eslint index.js src/",
     "test:unit": "ava --verbose src/test.js",
-    "test": "npm run test:lint && npm run test:unit"
+    "test": "npm run test:lint && npm run test:unit",
+    "release:tag": "git tag $npm_package_version && git push --tags"
   },
   "keywords": [
     "fibonacci",
