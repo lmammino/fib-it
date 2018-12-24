@@ -81,24 +81,6 @@ gen = fibGenerator(6)
 [...gen] // [ 1, 1, 2, 3, 5 ]
 ```
 
-## _iterable-based_ implementation
-
-```javascript
-const { genFibIterable } = require('fib-it')
-
-it = genFibIterable(6) // { [Symbol(Symbol.iterator)]: [GeneratorFunction: [Symbol.iterator]] }
-[...it] // [ 1, 1, 2, 3, 5 ]
-
-// or
-
-for (n of f) { console.log(n) }
-// 1
-// 1
-// 2
-// 3
-// 5
-```
-
 ### _iterable-based_ implementation
 
 ```javascript
