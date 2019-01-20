@@ -20,11 +20,11 @@ const { Buffer } = require('safe-buffer')
 class FibStream extends Readable {
   /**
    * Creates a new FibStream instance
-   * @param {Number} [max=Infinity] the maximum number, once reached the
+   * @param {Number} [max=Number.MAX_SAFE_INTEGER] the maximum number, once reached the
    *                                sequence will stop progressing
    * @param {[type]} options        stream options
    */
-  constructor (max = Infinity, options) {
+  constructor (max = Number.MAX_SAFE_INTEGER, options) {
     super(options)
     this._max = max
     this._n1 = 0

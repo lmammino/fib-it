@@ -16,11 +16,11 @@
  *  gen = fibGenerator(6)
  *  [...gen] // [ 1, 1, 2, 3, 5 ]
  *
- * @param  {Number} [max=Infinity] the maximum number, once reached the
+ * @param  {Number} [max=Number.MAX_SAFE_INTEGER] the maximum number, once reached the
  *                                 sequence will stop progressing
  * @return {Generator}             a generator function
  */
-const fibGenerator = function * f (max = Infinity) {
+const fibGenerator = function * f (max = Number.MAX_SAFE_INTEGER) {
   let n1 = 0
   let n2 = 0
 

@@ -23,12 +23,12 @@ const EventEmitter = require('eventemitter3')
 class FibEmitter extends EventEmitter {
   /**
    * Creaes a new FibEmitter
-   * @param {Number} [max=Infinity]    the maximum number, once reached the
+   * @param {Number} [max=Number.MAX_SAFE_INTEGER]    the maximum number, once reached the
    *                                   sequence will stop progressing
    * @param {Number} [emitEveryMs=100] The number of milliseconds between emitted
    *                                   numbers
    */
-  constructor (max = Infinity, emitEveryMs = 100) {
+  constructor (max = Number.MAX_SAFE_INTEGER, emitEveryMs = 100) {
     super()
     this._max = max
     this._emitEveryMs = emitEveryMs

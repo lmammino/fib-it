@@ -14,11 +14,11 @@
  *  // 3
  *  // 5
  *
- * @param  {Number} [max=Infinity] the maximum number, once reached the
+ * @param  {Number} [max=Number.MAX_SAFE_INTEGER] the maximum number, once reached the
  *                                 sequence will stop progressing
  * @return {object}                an iterator object
  */
-const genFibIterable = (max = Infinity) => {
+const genFibIterable = (max = Number.MAX_SAFE_INTEGER) => {
   return {
     * [Symbol.iterator] () {
       let n1 = 0

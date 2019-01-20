@@ -32,6 +32,10 @@ test('fib-iterator', t => {
   curr = it2.next()
   t.is(null, curr.value)
   t.true(curr.done)
+
+  const it3 = genFibIterator(6)
+  const result3 = [...it3]
+  t.deepEqual(result3, expected)
 })
 
 test('fib-generator', t => {
